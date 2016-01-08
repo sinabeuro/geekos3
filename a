@@ -1,0 +1,17 @@
+--- C:/Users/ADMINI~1/AppData/Local/Temp/kthread.h-revBASE.svn001.tmp.h	≈‰ 12  5 03:34:07 2015
++++ C:/Users/Administrator/Desktop/share/project3/include/geekos/kthread.h	≈‰ 12  5 06:21:35 2015
+@@ -62,0 +63,6 @@ struct Kernel_Thread {
++    /*
++     * The run queue level that the thread should be put on
++     * when it is restarted.
++     */
++    int currentReadyQueue;
++    bool blocked;
+@@ -72 +78 @@ static __inline__ void Enqueue_Thread(struct Threa
+-    Add_To_Back_Of_Thread_Queue(queue, kthread); 
++    Add_To_Back_Of_Thread_Queue(queue, kthread);
+@@ -92,0 +99,4 @@ typedef void (*Thread_Start_Func)(ulong_t arg);
++/*
++ * Number of ready queue levels.
++ */
++#define MAX_QUEUE_LEVEL 4
